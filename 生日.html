@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>余禛生日邀请函</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #secondPage {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="firstPage">
+        <h1>余禛生日邀请函</h1>
+        <button onclick="showPopup()">进入</button>
+    </div>
+
+    <div id="popup">
+        <p>问题：请问你觉得余禛帅吗</p>
+        <input type="text" id="answer" />
+        <button onclick="checkAnswer()">提交</button>
+    </div>
+
+    <div class="container" id="secondPage">
+        <h1>你好</h1>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById('answer').value.trim();
+            if (answer === "帅") {
+                document.getElementById('firstPage').style.display = 'none';
+                document.getElementById('popup').style.display = 'none';
+                document.getElementById('secondPage').style.display = 'flex';
+            } else {
+                alert("您失去了参加余禛生日聚会的资格！");
+                window.close(); // 尝试关闭浏览器窗口
+            }
+        }
+    </script>
+</body>
+
+</html>
